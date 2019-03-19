@@ -9,8 +9,3 @@ script: echo "skipping tests"
 after_success: echo "it succeeded"
 
 after_failure: echo "something failed"
-
-branches:
-  only:
-  - master
-  - stable
