@@ -1,0 +1,17 @@
+{
+  "name": "buildtest1",
+  "version": "1.0.0",
+  "description": "Test build1",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "rebuild": "electron-rebuild -f -w better-sqlite3"
+  },
+  "devDependencies": {
+    "electron": "^4.1.0",
+    "electron-rebuild": "^1.8.4"
+  },
+  "dependencies": {
+    "better-sqlite3": "^5.4.0"
+  }
+}
