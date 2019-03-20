@@ -8,10 +8,17 @@ script: echo "skipping tests"
 after_success: echo "it succeeded"
 after_failure: echo "something failed"
 after_script: npm run rebuild
+
+before_deploy:
+- mkdir testbuild
+- cp -a node_modules/better-sqlite3/bin testbuild
+- zip -r testbuild-$TRAVIS_TAG.zip testbuild
+
 deploy:
   provider: releases
   api_key:
     secure: WyzzI9XrdYlgmBBRhHgwYByf5RsLWicsqw5ik6uOcwSiTYSzlbu70qUK01hNafa9Vj5pjvMo+NJO1ah27o+oi439hUQFg/qFpPItsjHnVDW1h0suw+LrkDd0pIHRU+KapJE8rLDRBgNrQVlalK25S2wJICNz+HyKEm5QY874MFsgDTtWoCzPrWT9E2pex0Gw9lb9hIsfZPSsIk1ic92G3zmJ/Yze3mZIUvVXCq/wHkMn9hGX3KGifwrDcR3V5zgdLMxwsbzg6q6iWCan0LOrbCDakwVc6G6CKuM4RHqOuXG/aO20cVqlkaYl8pVkPOMU0rXgP6nNHH6oW/edXw+zSA+l15BWUZN+3iIlVPeYMy3plzZPKbOCGVXSMCtHEUNrcjfNvOxoA3Q583mgcAXTL2rrigr3GQyMuAWWCECVKFyiK/QHfwfCwPf7bavP5ulWsjXJEh1/vs75ohStRd5jLyU/iIkKG0U6RDec7B+aNsFFqDfAQ0kC7Qn6LOCx3zeJ8ZOH7S+ElxrChDBSSYiWIRnU7BfRGtZoHNOic/rLxu5wSf0e0Sr+pIdcp/ap4WJ1z5QGf8/2PbHcBpT52VWk36pfkn34VXzTTqTGwkl2VBNlE/HJwRDhOG9TV22Ol44CNEnuGXCHgAD9z3I2p95z5t1jyud65Y6X+KgE9yH12qQ=
-  file: README.md
+  file: testbuild-$TRAVIS_TAG.zip
+  skip_cleanup: true
   on:
     repo: ghprojectbuilds/buildtest1
