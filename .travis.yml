@@ -4,14 +4,13 @@ node_js:
 - '10'
 install:
 - npm install
-script: echo "skipping tests"
+script: npm run rebuild
 after_success: echo "it succeeded"
 after_failure: echo "something failed"
-after_script: npm run rebuild
 
 before_deploy:
 - mkdir testbuild
-- cp -a node_modules/better-sqlite3/bin testbuild
+- cp -a node_modules/better-sqlite3 testbuild
 - zip -r testbuild-$TRAVIS_TAG.zip testbuild
 
 deploy:
