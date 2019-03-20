@@ -11,7 +11,7 @@ after_success: echo "it succeeded"
 after_failure: echo "something failed"
 
 before_deploy:
-- zip -r testbuild-$TRAVIS_TAG.zip testbuild
+- zip -r testbuild-$TRAVIS_TAG.zip node_modules
 
 deploy:
   provider: releases
