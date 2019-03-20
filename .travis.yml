@@ -5,6 +5,7 @@ node_js:
 - '10'
 install:
 - npm install
+- npm rebuild
 script: npm run rebuild
 after_success: echo "it succeeded"
 after_failure: echo "something failed"
