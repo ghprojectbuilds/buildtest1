@@ -11,8 +11,6 @@ after_success: echo "it succeeded"
 after_failure: echo "something failed"
 
 before_deploy:
-- mkdir testbuild
-- cp -a node_modules/better-sqlite3 testbuild
 - zip -r testbuild-$TRAVIS_TAG.zip testbuild
 
 deploy:
