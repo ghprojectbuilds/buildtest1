@@ -8,9 +8,10 @@
     "rebuild": "electron-rebuild -f -w better-sqlite3"
   },
   "devDependencies": {
-    "electron-rebuild": "^1.8.5"
+    "electron": "^7.0.0",
+    "electron-rebuild": "^1.8.6"
   },
   "dependencies": {
-    "better-sqlite3": "^5.4.2"
+    "better-sqlite3": "^5.4.3"
   }
 }
